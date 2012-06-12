@@ -1,0 +1,32 @@
+#footer {
+  border-top: 1px solid #4080a0;
+  color: #999;
+  font-size: 11px;
+  margin-top: 12px;
+  text-align: right;
+  letter-spacing: 0.1em;
+}
+
+.header {
+  margin: auto;
+  padding-bottom: 4px;
+  width: 928px;
+}
+
+#mainFrame {
+  margin: auto;
+  width: 928px;
+}
+
+.topBanner {
+  background: #4080a0;
+  color: white;
+  margin: 0 0 16px 0;
+  padding: 4px 0;
+  width: 100%;
+}
+
+.topBanner h1 {
+  color: white;
+  margin: 2px 0 4px 0;
+}
