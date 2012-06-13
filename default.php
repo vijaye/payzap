@@ -1,12 +1,23 @@
 <?php
 
 // phpinfo();
-require 'sitemaster.php';
+require_once 'sitemaster.php';
 
 class DefaultPage extends SiteMaster {
   protected function getContent() {
-    return get_data(1, 'test');
-    return <div>lsdkjflsdk</div>;
+    return
+      <div>
+        <div>{get_data(1, 'test')}</div>
+
+        <button>Add Payment Option</button>
+      </div>;
+  }
+
+  protected function getRightHeader() {
+    return
+      <div>
+        {$this->getViewerContext()->getName()}
+      </div>;
   }
 }
 

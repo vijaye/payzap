@@ -30,7 +30,38 @@ function get_data($id, $key) {
   }
 slog($data);
   $mysqli->close();
+
+  $data = unserialize($data);
   return $data;
+}
+
+function set_data($id, $key, $value) {
+  $user = 'root';
+  $pass = 'seattle';
+
+  $value = serialize($value);
+
+  $mysqli = new mysqli('localhost', $user, $pass, 'prod');
+  if ($mysqli->connect_error) {
+    die('DB Connect error: ' . $mysqli->connect_error);
+  }
+
+  $data = null;
+  $key = $mysqli->real_escape_string($key);
+  $value = $mysqli->real_escape_string($value);
+
+  $mysqli->query(
+    "DELETE FROM assocs WHERE id=$id AND name='$key'"
+  );
+  $result = $mysqli->query(
+    "INSERT INTO assocs (id, name, value) ".
+    "VALUES ($id, '$key', '$value')"
+  );
+  if (!$result) {
+    die('DB set_value failed: ' . $mysqli->error);
+  }
+
+  $mysqli->close();
 }
 
 function idx($arr, $key, $default=null) {

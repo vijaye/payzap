@@ -32,6 +32,18 @@ body {
   text-align: left;
 }
 
+button {
+  font-family: Tahoma, Arial, Sans-Serif;
+  font-size: 12px;
+  border: 1px solid #7d9d9c;
+  background: #bacfce;
+  padding: 3px 12px;
+}
+
+button:active {
+  background: #7d9d9c;
+}
+
 .clearfix {
   position: relative;
 }
