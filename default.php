@@ -1,15 +1,18 @@
 <?php
 
 // phpinfo();
-require_once 'sitemaster.php';
+requirex('sitemaster.php');
 
 class DefaultPage extends SiteMaster {
   protected function getContent() {
+    require_script('js/default.js');
     return
       <div>
         <div>{get_data(1, 'test')}</div>
 
-        <button>Add Payment Option</button>
+        <button onclick="DefaultPage.showPaymentOptionsPicker()">
+          Add Payment Option
+        </button>
       </div>;
   }
 

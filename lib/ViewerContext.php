@@ -1,7 +1,5 @@
 <?php
 
-require_once 'globals.php';
-
 class ViewerContext {
   const ASSOC_VIEWER_CONTEXT = 'viewer_context';
 

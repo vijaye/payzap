@@ -1,13 +1,16 @@
 <?php
 
-require 'globals.php';
+requirex('lib/ViewerContext.php');
 
 abstract class WebController {
   private
-    $request;
+    $request,
+    $vc;
 
   function __construct() {
     $this->request = $_REQUEST;
+
+    $this->vc = new ViewerContext();
     $this->init();
   }
 
@@ -16,6 +19,10 @@ abstract class WebController {
 
   public function getRequest() {
     return $this->request;
+  }
+
+  public function getViewerContext() {
+    return $this->vc;
   }
 
   abstract protected function getResponse();

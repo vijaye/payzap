@@ -65,7 +65,7 @@ function set_data($id, $key, $value) {
 }
 
 function idx($arr, $key, $default=null) {
-  if (array_key_exists($key, $arr)) {
+  if ($arr && array_key_exists($key, $arr)) {
     return $arr[$key];
   }
 
@@ -73,7 +73,7 @@ function idx($arr, $key, $default=null) {
 }
 
 function requirex($path) {
-  require_once($_SERVER["DOCUMENT_ROOT"] . $path);
+  require_once($_SERVER["DOCUMENT_ROOT"] . '/' . $path);
 }
 
 function require_meta($name, $content) {

@@ -1,23 +1,15 @@
 <?php
 
-require_once 'WebController.php';
-require_once 'ViewerContext.php';
+requirex('lib/WebController.php');
 
 abstract class WebPageController extends WebController {
-  private $vc;
-
   protected function init() {
-    require_script('js/jquery-1.6.2.min.js');
-    require_script('js/jquery-ui-1.8.16.custom.min.js');
-    require_script('js/jsuri-1.1.0.min.js');
+    require_script('js/jquery.js');
+    require_script('js/jquery-ui.js');
+
     require_script('js/utils.js');
     require_style('css/global.css');
-
-    $this->vc = new ViewerContext();
-  }
-
-  public function getViewerContext() {
-    return $this->vc;
+    require_style('css/theme/jquery-ui.css');
   }
 
   public function invoke() {

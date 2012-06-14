@@ -1,6 +1,6 @@
 <?php
 
-require_once 'lib/WebPageController.php';
+requirex('lib/WebPageController.php');
 
 class SiteMaster extends WebPageController {
   protected function getResponse() {
