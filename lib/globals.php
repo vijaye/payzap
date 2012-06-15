@@ -28,7 +28,6 @@ function get_data($id, $key) {
     $data = $obj->value;
     $result->close();
   }
-slog($data);
   $mysqli->close();
 
   $data = unserialize($data);

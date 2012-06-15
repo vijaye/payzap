@@ -10,9 +10,13 @@ class DefaultPage extends SiteMaster {
       <div>
         <div>{get_data(1, 'test')}</div>
 
-        <button onclick="DefaultPage.showPaymentOptionsPicker()">
+        <button
+          class="ui-button"
+          onclick="DefaultPage.showPaymentOptionsPicker()">
           Add Payment Option
         </button>
+
+        {$this->getPaymentPickerDialog()}
       </div>;
   }
 
@@ -20,6 +24,16 @@ class DefaultPage extends SiteMaster {
     return
       <div>
         {$this->getViewerContext()->getName()}
+      </div>;
+  }
+
+  protected function getPaymentPickerDialog() {
+    return
+      <div
+        id="pickerDialog"
+        title="Select a payment option">
+        <ol id="pickerList">
+        </ol>
       </div>;
   }
 }

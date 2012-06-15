@@ -47,18 +47,18 @@
  *
  * http://docs.jquery.com/UI/Theming/API
  *
- * To view and modify this theme, visit http://jqueryui.com/themeroller/?ffDefault="lucida%20grande",tahoma,verdana,arial,sans-serif&fwDefault=normal&fsDefault=12px&cornerRadius=0px&bgColorHeader=e8eeee&bgTextureHeader=01_flat.png&bgImgOpacityHeader=75&borderColorHeader=7d9d9c&fcHeader=222222&iconColorHeader=222222&bgColorContent=ffffff&bgTextureContent=01_flat.png&bgImgOpacityContent=75&borderColorContent=7d9d9c&fcContent=222222&iconColorContent=222222&bgColorDefault=bacfce&bgTextureDefault=01_flat.png&bgImgOpacityDefault=75&borderColorDefault=7d9d9c&fcDefault=333&iconColorDefault=888888&bgColorHover=bacfce&bgTextureHover=01_flat.png&bgImgOpacityHover=75&borderColorHover=7d9d9c&fcHover=333&iconColorHover=454545&bgColorActive=7d9d9c&bgTextureActive=01_flat.png&bgImgOpacityActive=65&borderColorActive=7d9d9c&fcActive=fff&iconColorActive=454545&bgColorHighlight=fbf9ee&bgTextureHighlight=02_glass.png&bgImgOpacityHighlight=55&borderColorHighlight=7d9d9c&fcHighlight=363636&iconColorHighlight=2e83ff&bgColorError=fef1ec&bgTextureError=01_flat.png&bgImgOpacityError=95&borderColorError=cd0a0a&fcError=f5692e&iconColorError=cd0a0a&bgColorOverlay=ffffff&bgTextureOverlay=01_flat.png&bgImgOpacityOverlay=0&opacityOverlay=80&bgColorShadow=525252&bgTextureShadow=01_flat.png&bgImgOpacityShadow=0&opacityShadow=40&thicknessShadow=8px&offsetTopShadow=-8px&offsetLeftShadow=-8px&cornerRadiusShadow=0px
+ * To view and modify this theme, visit http://jqueryui.com/themeroller/?ffDefault=lucida%20grande,%20tahoma,verdana,arial,sans-serif&fwDefault=normal&fsDefault=12px&cornerRadius=0px&bgColorHeader=e8eeee&bgTextureHeader=01_flat.png&bgImgOpacityHeader=75&borderColorHeader=e8eeee&fcHeader=222222&iconColorHeader=222222&bgColorContent=ffffff&bgTextureContent=01_flat.png&bgImgOpacityContent=75&borderColorContent=7d9d9c&fcContent=222222&iconColorContent=222222&bgColorDefault=bacfce&bgTextureDefault=01_flat.png&bgImgOpacityDefault=75&borderColorDefault=7d9d9c&fcDefault=333&iconColorDefault=888888&bgColorHover=bacfce&bgTextureHover=01_flat.png&bgImgOpacityHover=75&borderColorHover=7d9d9c&fcHover=333&iconColorHover=454545&bgColorActive=7d9d9c&bgTextureActive=01_flat.png&bgImgOpacityActive=65&borderColorActive=7d9d9c&fcActive=fff&iconColorActive=454545&bgColorHighlight=fbf9ee&bgTextureHighlight=02_glass.png&bgImgOpacityHighlight=55&borderColorHighlight=7d9d9c&fcHighlight=363636&iconColorHighlight=2e83ff&bgColorError=fef1ec&bgTextureError=01_flat.png&bgImgOpacityError=95&borderColorError=cd0a0a&fcError=f5692e&iconColorError=cd0a0a&bgColorOverlay=bababa&bgTextureOverlay=01_flat.png&bgImgOpacityOverlay=0&opacityOverlay=80&bgColorShadow=525252&bgTextureShadow=01_flat.png&bgImgOpacityShadow=0&opacityShadow=40&thicknessShadow=8px&offsetTopShadow=-8px&offsetLeftShadow=-8px&cornerRadiusShadow=0px
  */
 
 
 /* Component containers
 ----------------------------------*/
-.ui-widget { font-family: \\\"lucida grande\\\",tahoma,verdana,arial,sans-serif; font-size: 12px; }
+.ui-widget { font-family: lucida grande, tahoma,verdana,arial,sans-serif; font-size: 12px; }
 .ui-widget .ui-widget { font-size: 1em; }
-.ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button { font-family: \\\"lucida grande\\\",tahoma,verdana,arial,sans-serif; font-size: 1em; }
+.ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button { font-family: lucida grande, tahoma,verdana,arial,sans-serif; font-size: 1em; }
 .ui-widget-content { border: 1px solid #7d9d9c; background: #ffffff url(images/ui-bg_flat_75_ffffff_40x100.png) 50% 50% repeat-x; color: #222222; }
 .ui-widget-content a { color: #222222; }
-.ui-widget-header { border: 1px solid #7d9d9c; background: #e8eeee url(images/ui-bg_flat_75_e8eeee_40x100.png) 50% 50% repeat-x; color: #222222; font-weight: bold; }
+.ui-widget-header { border: 1px solid #e8eeee; background: #e8eeee url(images/ui-bg_flat_75_e8eeee_40x100.png) 50% 50% repeat-x; color: #222222; font-weight: bold; }
 .ui-widget-header a { color: #222222; }
 
 /* Interaction states
@@ -283,7 +283,7 @@
 .ui-corner-all, .ui-corner-bottom, .ui-corner-right, .ui-corner-br { -moz-border-radius-bottomright: 0px; -webkit-border-bottom-right-radius: 0px; -khtml-border-bottom-right-radius: 0px; border-bottom-right-radius: 0px; }
 
 /* Overlays */
-.ui-widget-overlay { background: #ffffff url(images/ui-bg_flat_0_ffffff_40x100.png) 50% 50% repeat-x; opacity: .80;filter:Alpha(Opacity=80); }
+.ui-widget-overlay { background: #bababa url(images/ui-bg_flat_0_bababa_40x100.png) 50% 50% repeat-x; opacity: .80;filter:Alpha(Opacity=80); }
 .ui-widget-shadow { margin: -8px 0 0 -8px; padding: 8px; background: #525252 url(images/ui-bg_flat_0_525252_40x100.png) 50% 50% repeat-x; opacity: .40;filter:Alpha(Opacity=40); -moz-border-radius: 0px; -khtml-border-radius: 0px; -webkit-border-radius: 0px; border-radius: 0px; }/*!
  * jQuery UI Resizable 1.8.21
  *
@@ -341,7 +341,7 @@
  *
  * http://docs.jquery.com/UI/Autocomplete#theming
  */
-.ui-autocomplete { position: absolute; cursor: default; }	
+.ui-autocomplete { position: absolute; cursor: default; }
 
 /* workarounds */
 * html .ui-autocomplete { width:1px; } /* without this, the menu expands to 100% in IE6 */
@@ -356,34 +356,34 @@
  * http://docs.jquery.com/UI/Menu#theming
  */
 .ui-menu {
-	list-style:none;
-	padding: 2px;
-	margin: 0;
-	display:block;
-	float: left;
+  list-style:none;
+  padding: 2px;
+  margin: 0;
+  display:block;
+  float: left;
 }
 .ui-menu .ui-menu {
-	margin-top: -3px;
+  margin-top: -3px;
 }
 .ui-menu .ui-menu-item {
-	margin:0;
-	padding: 0;
-	zoom: 1;
-	float: left;
-	clear: left;
-	width: 100%;
+  margin:0;
+  padding: 0;
+  zoom: 1;
+  float: left;
+  clear: left;
+  width: 100%;
 }
 .ui-menu .ui-menu-item a {
-	text-decoration:none;
-	display:block;
-	padding:.2em .4em;
-	line-height:1.5;
-	zoom:1;
+  text-decoration:none;
+  display:block;
+  padding:.2em .4em;
+  line-height:1.5;
+  zoom:1;
 }
 .ui-menu .ui-menu-item a.ui-state-hover,
 .ui-menu .ui-menu-item a.ui-state-active {
-	font-weight: normal;
-	margin: -1px;
+  font-weight: normal;
+  margin: -1px;
 }
 /*!
  * jQuery UI Button 1.8.21
@@ -397,8 +397,8 @@
 .ui-button { display: inline-block; position: relative; padding: 0; margin-right: .1em; text-decoration: none !important; cursor: pointer; text-align: center; zoom: 1; overflow: visible; } /* the overflow property removes extra width in IE */
 .ui-button-icon-only { width: 2.2em; } /* to make room for the icon, a width needs to be set here */
 button.ui-button-icon-only { width: 2.4em; } /* button elements seem to need a little more width */
-.ui-button-icons-only { width: 3.4em; } 
-button.ui-button-icons-only { width: 3.7em; } 
+.ui-button-icons-only { width: 3.4em; }
+button.ui-button-icons-only { width: 3.7em; }
 
 /*button text element */
 .ui-button .ui-button-text { display: block; line-height: 1.4;  }
@@ -434,7 +434,7 @@ button.ui-button::-moz-focus-inner { border: 0; padding: 0; } /* reset extra pad
  */
 .ui-dialog { position: absolute; padding: .2em; width: 300px; overflow: hidden; }
 .ui-dialog .ui-dialog-titlebar { padding: .4em 1em; position: relative;  }
-.ui-dialog .ui-dialog-title { float: left; margin: .1em 16px .1em 0; } 
+.ui-dialog .ui-dialog-title { float: left; margin: .1em 16px .1em 0; }
 .ui-dialog .ui-dialog-titlebar-close { position: absolute; right: .3em; top: 50%; width: 19px; margin: -10px 0 0 0; padding: 1px; height: 18px; }
 .ui-dialog .ui-dialog-titlebar-close span { display: block; margin: 1px; }
 .ui-dialog .ui-dialog-titlebar-close:hover, .ui-dialog .ui-dialog-titlebar-close:focus { padding: 0; }
@@ -506,7 +506,7 @@ button.ui-button::-moz-focus-inner { border: 0; padding: 0; } /* reset extra pad
 .ui-datepicker .ui-datepicker-title { margin: 0 2.3em; line-height: 1.8em; text-align: center; }
 .ui-datepicker .ui-datepicker-title select { font-size:1em; margin:1px 0; }
 .ui-datepicker select.ui-datepicker-month-year {width: 100%;}
-.ui-datepicker select.ui-datepicker-month, 
+.ui-datepicker select.ui-datepicker-month,
 .ui-datepicker select.ui-datepicker-year { width: 49%;}
 .ui-datepicker table {width: 100%; font-size: .9em; border-collapse: collapse; margin:0 0 .4em; }
 .ui-datepicker th { padding: .7em .3em; text-align: center; font-weight: bold; border: 0;  }

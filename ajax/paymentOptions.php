@@ -27,9 +27,9 @@ class PaymentOptionsAjaxPage extends WebController {
     $response = array();
 
     foreach ($all_options as $option) {
-      $list_item = AllPaymentOptions::getPaymentListItem($option)
+      $list_item = AllPaymentOptions::getPaymentListItem($option);
       $response[$option] = array(
-        'list_item' => $list_item->__toString();
+        'list_item' => $list_item->__toString()
       );
     }
 
