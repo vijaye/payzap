@@ -144,3 +144,9 @@ p {
 .rightAlign {
   text-align: right;
 }
+
+.subtitle {
+  color: #666;
+  font-size: 11px;
+}
+

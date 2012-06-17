@@ -78,6 +78,20 @@
       Utils.removeClass(el, 'hidden_elem');
     },
 
+    listen: function(element, name, handler) {
+      if (!element) { return; }
+      if (element.addEventListener) {
+        element.addEventListener(name, handler, false);
+      } else {
+        var handlerx = function() { handler(window.event); }
+        if (element.attachEvent) {
+          element.attachEvent('on' + name, handlerx);
+        } else {
+          element['on' + name] = handlerx;
+        }
+      }
+    },
+
     removeClass: function(element, name) {
       var names = element.className.split(' ');
       var newName = '';
@@ -89,6 +103,14 @@
       }
 
       element.className = newName;
+    },
+
+    stopEvent: function(e) {
+      if (e.stopPropagation) {
+        e.stopPropagation();
+      } else {
+        e.cancelBubble = true;
+      }
     }
   };
 

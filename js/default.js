@@ -19,21 +19,34 @@
       this.pendingRequest = false;
 
       var dialog = $('#pickerDialog');
-      var list = $('#pickerList');
+      var container = $('#pickerList');
+
+      container.empty();
 
       var result = JSON.parse(data);
+      var items = [];
       for (var key in result) {
         var value = result[key];
-        var listItem = Utils.create('li', { class: 'ui-widget-content' });
+        var listItem = Utils.create('div');
         listItem.innerHTML = value.list_item;
         listItem.__key = key;
-        list.append(listItem);
+        items.push(listItem);
       }
 
-      list.selectable();
+      var listBox = new ListBox(items, function() {});
+      container.append(listBox.getElement());
       dialog.dialog({
-        height: 140,
-        modal: true
+        modal: true,
+        resizable: false,
+        width: 480,
+        buttons: {
+          OK: function() {
+            alert('okay');
+          },
+          Cancel: function() {
+            $(this).dialog('close');
+          }
+        }
       });
     }
   }

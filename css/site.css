@@ -30,3 +30,38 @@
   color: white;
   margin: 2px 0 4px 0;
 }
+
+
+/** JQuery fixups **/
+.ui-button-text-only .ui-button-text {
+  padding: 2px 4px;
+}
+
+.ui-dialog .ui-dialog-buttonpane button {
+  margin: .2em .4em .5em 0;
+  min-width: 60px;
+  cursor: pointer;
+}
+
+.ui-dialog .ui-dialog-buttonpane {
+  background: #d8e2e2;
+  padding: .3em .3em .1em .4em;
+}
+
+.ui-dialog .ui-dialog-content {
+  padding: .5em 0.3em;
+}
+
+.ui-dialog .ui-dialog-titlebar {
+  color: #444;
+  font-size: 14px;
+  padding: .4em 0.5em;
+}
+
+.ui-dialog {
+  padding: 0;
+}
+
+.ui-widget-content a {
+  color: #3f89c0;
+}

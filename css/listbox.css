@@ -1,0 +1,17 @@
+.list-box {
+
+}
+
+.list-box-item {
+  cursor: pointer;
+  margin: 2px;
+  padding: 2px;
+}
+
+.list-box-item:hover {
+  background: #e8eeee;
+}
+
+.list-box-item.selected {
+  background: #bacfce;
+}

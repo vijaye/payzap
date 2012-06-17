@@ -6,6 +6,9 @@ requirex('sitemaster.php');
 class DefaultPage extends SiteMaster {
   protected function getContent() {
     require_script('js/default.js');
+    require_script('js/listbox.js');
+    require_style('css/listbox.css');
+
     return
       <div>
         <div>{get_data(1, 'test')}</div>
@@ -32,7 +35,7 @@ class DefaultPage extends SiteMaster {
       <div
         id="pickerDialog"
         title="Select a payment option">
-        <ol id="pickerList">
+        <ol id="pickerList" class="selectable">
         </ol>
       </div>;
   }
