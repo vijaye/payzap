@@ -2,6 +2,7 @@
 
 requirex('lib/WebController.php');
 requirex('lib/payments/AllPaymentOptions.php');
+requirex('lib/payments/PaypalForm.php');
 
 class PaymentOptionsAjaxPage extends WebController {
   protected function getResponse() {
@@ -13,6 +14,9 @@ class PaymentOptionsAjaxPage extends WebController {
     switch ($method) {
       case 'add_options':
         return $this->getAddOptions();
+
+      case 'get_form':
+        return $this->getForm(idx($this->getRequest(), 'option'));
     }
 
     return '';
@@ -20,6 +24,14 @@ class PaymentOptionsAjaxPage extends WebController {
 
   protected function getErrorResponse() {
     return 'Invalid Ajax Request';
+  }
+
+  protected function getForm($option) {
+    switch ($option) {
+      case 'paypal':
+        return new PaypalForm();
+    }
+    return '';
   }
 
   protected function getAddOptions() {

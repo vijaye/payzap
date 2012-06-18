@@ -49,13 +49,13 @@
 }
 
 .ui-dialog .ui-dialog-content {
-  padding: .5em 0.3em;
+  padding: 8px;
 }
 
 .ui-dialog .ui-dialog-titlebar {
   color: #444;
   font-size: 14px;
-  padding: .4em 0.5em;
+  padding: 2px 8px;
 }
 
 .ui-dialog {

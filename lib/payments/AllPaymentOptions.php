@@ -13,19 +13,19 @@ class AllPaymentOptions {
     switch ($type) {
       case 'paypal':
         return self::buildListItem(
-          'paypal_48.png',
+          'paypal_32.png',
           'Paypal',
           'https://www.paypal.com/webapps/mpp/merchant');
 
       case 'zong':
         return self::buildListItem(
-          'zong_48.png',
+          'zong_32.png',
           'Zong',
           'https://my.zong.com/ZPlusConsumerConsole/login/consumerLogin');
 
       case 'stripe':
         return self::buildListItem(
-          'stripe_48.png',
+          'stripe_32.png',
           'Stripe',
           'https://manage.stripe.com/login');
     }
@@ -37,14 +37,8 @@ class AllPaymentOptions {
     return
       <div class="clearfix">
         <img src={'/img/modes/' . $img} class="left" />
-        <div style="margin-left: 60px;">
+        <div style="margin-left: 42px; padding-top: 8px;">
           <h4>{$title}</h4>
-          <div class="subtitle">
-            <a href={$link} target="_blank">
-              <span class="ui-icon ui-icon-newwin left"></span>
-              {$link}
-            </a>
-          </div>
         </div>
       </div>;
   }

@@ -116,13 +116,20 @@ hr {
 input {
   font-family: Tahoma, Arial, Sans-Serif;
   font-size: 12px;
-  letter-spacing: 0.1em;
   margin: 1px 0;
 }
 
+input[type=text] {
+  border: 1px solid #7d9d9c;
+  padding: 2px;
+}
+
 label {
+  color: #666;
   display: block;
-  margin-bottom: 4px;
+  font-size: 11px;
+  font-weight: bold;
+  margin: 6px 0 2px 0
 }
 
 .left {
@@ -135,6 +142,24 @@ ol, ul {
 
 p {
   line-height: 1.8em;
+}
+
+.popup {
+  background: #fff;
+  border: 1px solid #7d9d9c;
+  box-shadow: 2px 2px 6px #ccc;
+  min-width: 160px;
+  padding: 2px;
+  position: absolute;
+  z-index: 200;
+}
+
+.popup .list-item {
+  cursor: pointer;
+}
+
+.popup .list-item:hover {
+  background: #e8eeee;
 }
 
 .right {

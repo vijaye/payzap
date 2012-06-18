@@ -34,6 +34,14 @@ function get_data($id, $key) {
   return $data;
 }
 
+function get_onload_scripts() {
+  return $GLOBALS['_scripts'];
+}
+
+function get_onload_styles() {
+  return $GLOBALS['_styles'];
+}
+
 function set_data($id, $key, $value) {
   $user = 'root';
   $pass = 'seattle';

@@ -14,8 +14,7 @@
       }
     },
 
-    ajax: function (endpoint, args, success, error) {
-      var xhr = new XMLHttpRequest();
+    ajax: function(endpoint, args, success, error) {
       var uri = new Uri().
         setPath('ajax/' + endpoint);
 
@@ -23,7 +22,12 @@
         uri.replaceQueryParam(key, args[key]);
       }
 
-      xhr.open('GET', uri.toString(), true);
+      return this.ajaxWithUrl(uri.toString(), success, error);
+    },
+
+    ajaxWithUrl: function(url, success, error) {
+      var xhr = new XMLHttpRequest();
+      xhr.open('GET', url, true);
 
       xhr.onreadystatechange = function () {
         if (xhr.readyState == 4) {
@@ -71,6 +75,47 @@
       }
     },
 
+    getBounds: function(el) {
+      var l = el.offsetLeft;
+      var t = el.offsetTop;
+      var w = el.offsetWidth;
+      var h = el.offsetHeight;
+
+      while (el = el.offsetParent) {
+        l += el.offsetLeft;
+        t += el.offsetTop;
+      }
+
+      return {
+        left: l,
+        top: t,
+        width: w,
+        height: h,
+        right: l + w,
+        bottom: t + h
+      };
+    },
+
+    handleAjaxResponse: function(response) {
+      if (!response || !response.ajax_response) {
+        return;
+      }
+
+      var styles = response.styles;
+      if (styles) {
+        for (var ii = 0, len = styles.length; ii < len; ii++) {
+          Utils.loadStyle(styles[ii]);
+        }
+      }
+
+      var scripts = response.scripts;
+      if (scripts) {
+        for (var ii = 0, len = scripts.length; ii < len; ii++) {
+          Utils.loadScript(scripts[ii]);
+        }
+      }
+    },
+
     hide: function(el) {
       Utils.addClass(el, 'hidden_elem');
     },
@@ -90,6 +135,25 @@
           element['on' + name] = handlerx;
         }
       }
+    },
+
+    loadScript: function(script) {
+      document.head.appendChild(
+        Utils.create('script', {
+          src: script,
+          type: 'text/javascript'
+        })
+      );
+    },
+
+    loadStyle: function(style) {
+      document.head.appendChild(
+        Utils.create('link', {
+          rel: 'stylesheet',
+          href: style,
+          type: 'text/css',
+        })
+      );
     },
 
     removeClass: function(element, name) {

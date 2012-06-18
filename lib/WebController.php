@@ -29,6 +29,10 @@ abstract class WebController {
 
   public function invoke() {
     $content = $this->getResponse();
-    echo $content;
+    if ($content instanceof WebController) {
+      echo $content->getResponse();
+    } else {
+      echo $content;
+    }
   }
 }
