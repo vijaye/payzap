@@ -1,8 +1,8 @@
 <?php
 
-class ViewerContext {
-  const ASSOC_VIEWER_CONTEXT = 'viewer_context';
+requirex('lib/Assocs.php');
 
+class ViewerContext {
   private
     $request,
     $userId,
@@ -16,7 +16,7 @@ class ViewerContext {
 
   protected function init() {
     $this->userId = 1;
-    $data = get_data($this->userId, self::ASSOC_VIEWER_CONTEXT);
+    $data = get_data($this->userId, Assocs::VIEWER_CONTEXT);
 
     if (!$data) {
       die('Bad Viewer Context');
@@ -46,7 +46,7 @@ class ViewerContext {
       'name' => $this->name,
       'email' => $this->email,
     );
-    set_data($this->userId, self::ASSOC_VIEWER_CONTEXT, $data);
+    set_data($this->userId, Assocs::VIEWER_CONTEXT, $data);
   }
 
   public static function updateFake() {
@@ -54,6 +54,6 @@ class ViewerContext {
       'name' => 'Vijaye Raji',
       'email' => 'vijaye@vijaye.com',
     );
-    set_data(1, self::ASSOC_VIEWER_CONTEXT, $data);
+    set_data(1, Assocs::VIEWER_CONTEXT, $data);
   }
 }

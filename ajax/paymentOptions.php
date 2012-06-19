@@ -17,6 +17,9 @@ class PaymentOptionsAjaxPage extends WebController {
 
       case 'get_form':
         return $this->getForm(idx($this->getRequest(), 'option'));
+
+      case 'set_details':
+        return $this->setDetails();
     }
 
     return '';
@@ -46,6 +49,20 @@ class PaymentOptionsAjaxPage extends WebController {
     }
 
     return json_encode($response);
+  }
+
+  protected function setDetails() {
+    $request = $this->getRequest();
+slog(basename(__FILE__) . ':' . __LINE__);
+slog($request);
+slog($HTTP_RAW_POST_DATA);
+    $option = idx($request, 'option');
+
+    switch ($option) {
+      case 'paypal':
+        PaypalForm::setDetails($this->getViewerContext(), $request);
+        break;
+    }
   }
 }
 

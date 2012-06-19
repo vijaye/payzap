@@ -170,6 +170,11 @@ p {
   text-align: right;
 }
 
+.stretch {
+  box-sizing: border-box;
+  width: 100%;
+}
+
 .subtitle {
   color: #666;
   font-size: 11px;

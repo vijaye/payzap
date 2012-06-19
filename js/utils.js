@@ -14,20 +14,24 @@
       }
     },
 
-    ajax: function(endpoint, args, success, error) {
+    ajax: function(endpoint, args, success, error, postData) {
       var uri = new Uri().
-        setPath('ajax/' + endpoint);
+        setPath('/ajax/' + endpoint);
 
       for (var key in args) {
         uri.replaceQueryParam(key, args[key]);
       }
 
-      return this.ajaxWithUrl(uri.toString(), success, error);
+      return this.ajaxWithUrl(uri.toString(), success, error, postData);
     },
 
-    ajaxWithUrl: function(url, success, error) {
+    ajaxWithUrl: function(url, success, error, postData) {
       var xhr = new XMLHttpRequest();
-      xhr.open('GET', url, true);
+      var method = 'GET';
+      if (postData) {
+        method = 'POST';
+      }
+      xhr.open(method, url, true);
 
       xhr.onreadystatechange = function () {
         if (xhr.readyState == 4) {
@@ -41,7 +45,11 @@
         }
       };
 
-      xhr.send(null);
+      if (postData) {
+        xhr.send(JSON.stringify(postData));
+      } else {
+        xhr.send(null);
+      }
     },
 
     callAjaxApi: function(method, args, callback) {
