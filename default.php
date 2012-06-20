@@ -10,12 +10,12 @@ class DefaultPage extends SiteMaster {
     require_script('js/listbox.js');
     require_script('js/popup.js');
     require_script('js/dialog.js');
+
+    require_style('css/default.css');
     require_style('css/listbox.css');
 
     return
       <div>
-        <div>{get_data(1, 'test')}</div>
-
         <button
           id="addPaymentButton"
           class="ui-button"
@@ -23,6 +23,7 @@ class DefaultPage extends SiteMaster {
           Add Payment Option
         </button>
         {$this->getPaymentPickerPopup()}
+        {$this->getPaymentOptionRows()}
       </div>;
   }
 
@@ -48,6 +49,19 @@ class DefaultPage extends SiteMaster {
     }
 
     return $popup;
+  }
+
+  protected function getPaymentOptionRows() {
+    $vc = $this->getViewerContext();
+    $options = AllPaymentOptions::getRegisteredOptions($vc);
+
+    $rows = <div class="registeredOptions" />;
+    foreach ($options as $option) {
+      $row = AllPaymentOptions::getPaymentOptionRow($vc, $option);
+      $rows->appendChild($row);
+    }
+
+    return $rows;
   }
 }
 

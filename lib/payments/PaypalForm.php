@@ -8,6 +8,14 @@ class PaypalForm extends DialogController {
   }
 
   public function getDialogBody() {
+    $vc = $this->getViewerContext();
+    $paypal_data = get_data($vc->getUserId(), Assocs::PAYMENT_OPTION_PAYPAL);
+
+    if ($paypal_data) {
+      $dev_id = idx($paypal_data, 'dev_id');
+      $api_key = idx($paypal_data, 'api_key');
+      $api_secret = idx($paypal_data, 'api_secret');
+    }
     return
       <div id="paypalForm">
         <label>Dev id</label>
@@ -15,21 +23,24 @@ class PaypalForm extends DialogController {
           id="paypalDevId"
           type="text"
           class="stretch"
-          name="dev_id" />
+          name="dev_id"
+          value={$dev_id} />
 
         <label>API Key</label>
         <input
           id="paypalApiKey"
           type="text"
           class="stretch"
-          name="api_key" />
+          name="api_key"
+          value={$api_key} />
 
         <label>API Secret</label>
         <input
           id="paypalApiSecret"
           type="text"
           class="stretch"
-          name="api_secret" />
+          name="api_secret"
+          value={$api_secret} />
       </div>;
   }
 
@@ -42,7 +53,6 @@ class PaypalForm extends DialogController {
   }
 
   public static function setDetails($vc, $request) {
-slog(basename(__FILE__) . ':' . __LINE__);
     $user_id = $vc->getUserId();
     $option_id = 'paypal';
     $payment_options = get_data($user_id, Assocs::PAYMENT_OPTIONS);
@@ -55,7 +65,9 @@ slog(basename(__FILE__) . ':' . __LINE__);
     $paypal_data['api_secret'] = idx($request, 'api_secret');
     $paypal_data['dev_id'] = idx($request, 'dev_id');
 
-    set_data($user_id, 'assoc_' . $option_id, $paypal_data);
+    set_data($user_id, Assocs::PAYMENT_OPTION_PAYPAL, $paypal_data);
     set_data($user_id, Assocs::PAYMENT_OPTIONS, $payment_options);
+
+    return json_encode(array('error_code' => 0));
   }
 }

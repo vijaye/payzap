@@ -25,12 +25,16 @@ function get_data($id, $key) {
   );
   if ($result) {
     $obj = $result->fetch_object();
-    $data = $obj->value;
+    if ($obj) {
+      $data = $obj->value;
+    }
     $result->close();
   }
   $mysqli->close();
 
-  $data = unserialize($data);
+  if ($data) {
+    $data = unserialize($data);
+  }
   return $data;
 }
 

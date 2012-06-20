@@ -1,5 +1,9 @@
 (function() {
   Paypal = {
+    onSubmitSuccess: function(response) {
+      AjaxDialog.destroyAll();
+    },
+
     validateDetailsForm: function(form) {
       if (!form) {
         return false;
@@ -16,8 +20,8 @@
       Utils.ajax(
         'paymentOptions.php',
         { method: 'set_details' },
-        null,
-        null,
+        bind(this, this.onSubmitSuccess),
+        function() { alert('Error'); },
         {
           option: 'paypal',
           dev_id: devId,

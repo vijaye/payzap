@@ -30,9 +30,16 @@
       var method = 'GET';
       if (postData) {
         method = 'POST';
-      }
-      xhr.open(method, url, true);
 
+        var query = new Uri();
+        for (var key in postData) {
+          query.addQueryParam(key, postData[key]);
+        }
+
+        postData = query.toString().substring(1);
+      }
+
+      xhr.open(method, url, true);
       xhr.onreadystatechange = function () {
         if (xhr.readyState == 4) {
           if (xhr.status == 200) {
@@ -46,7 +53,10 @@
       };
 
       if (postData) {
-        xhr.send(JSON.stringify(postData));
+        xhr.setRequestHeader(
+          'Content-type',
+          'application/x-www-form-urlencoded');
+        xhr.send(postData);
       } else {
         xhr.send(null);
       }

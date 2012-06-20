@@ -9,8 +9,12 @@ class AllPaymentOptions {
     );
   }
 
-  public static function getPaymentListItem($type) {
-    switch ($type) {
+  public static function getRegisteredOptions($vc) {
+    return get_data($vc->getUserId(), Assocs::PAYMENT_OPTIONS);
+  }
+
+  public static function getPaymentListItem($option) {
+    switch ($option) {
       case 'paypal':
         return self::buildListItem(
           'paypal_32.png',
@@ -41,5 +45,43 @@ class AllPaymentOptions {
           <h4>{$title}</h4>
         </div>
       </div>;
+  }
+
+  public static function getPaymentOptionRow($vc, $option) {
+    $img = null;
+    $assoc_name = null;
+    $title = null;
+    switch ($option){
+      case 'paypal':
+        $img = '/img/modes/paypal_48.png';
+        $assoc_name = Assocs::PAYMENT_OPTION_PAYPAL;
+        $title = 'Paypal';
+        break;
+    }
+
+    $row = null;
+    if ($assoc_name) {
+      $option_data = get_data($vc->getUserId(), $assoc_name);
+
+      $fields = <div style="margin-left: 60px;" />;
+      foreach ($option_data as $key => $value) {
+        $fields->appendChild(
+          <x:frag>
+            <label>{$key}</label>
+            <h3>{$value}</h3>
+          </x:frag>
+        );
+      }
+      $row =
+        <div>
+          <h2>{$title}</h2>
+          <div class="clearfix">
+            <img class="left" src={$img} />
+            {$fields}
+          </div>
+        </div>;
+    }
+
+    return $row;
   }
 }

@@ -53,15 +53,11 @@ class PaymentOptionsAjaxPage extends WebController {
 
   protected function setDetails() {
     $request = $this->getRequest();
-slog(basename(__FILE__) . ':' . __LINE__);
-slog($request);
-slog($HTTP_RAW_POST_DATA);
     $option = idx($request, 'option');
 
     switch ($option) {
       case 'paypal':
-        PaypalForm::setDetails($this->getViewerContext(), $request);
-        break;
+        return PaypalForm::setDetails($this->getViewerContext(), $request);
     }
   }
 }

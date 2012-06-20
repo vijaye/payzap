@@ -5,14 +5,7 @@
       uri.replaceQueryParam('method', 'get_form');
       uri.replaceQueryParam('option', option);
 
-      var dialog = new AjaxDialog(uri.toString(), {
-        OK: bind(this, function() {
-          alert('blah')
-        }),
-        Cancel: function() {
-          $(this).dialog('close');
-        }
-      });
+      var dialog = new AjaxDialog(uri.toString());
       dialog.show();
     },
 
