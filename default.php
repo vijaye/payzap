@@ -10,6 +10,7 @@ class DefaultPage extends SiteMaster {
     require_script('js/listbox.js');
     require_script('js/popup.js');
     require_script('js/dialog.js');
+    require_script('js/payments/payments.js');
 
     require_style('css/default.css');
     require_style('css/listbox.css');
@@ -23,6 +24,9 @@ class DefaultPage extends SiteMaster {
           Add Payment Option
         </button>
         {$this->getPaymentPickerPopup()}
+        <div style="margin-top:20px;" class="title">
+          Registered options
+        </div>
         {$this->getPaymentOptionRows()}
       </div>;
   }
@@ -40,7 +44,7 @@ class DefaultPage extends SiteMaster {
       <div id="pickerPopup" class="popup hidden_elem" />;
 
     foreach ($all_options as $option) {
-      $click_handler = "DefaultPage.addPaymentOption('$option')";
+      $click_handler = "Payments.addPaymentOption('$option')";
       $list_item =
         <div class="list-item" onclick={$click_handler}>
           {AllPaymentOptions::getPaymentListItem($option)}
@@ -56,9 +60,15 @@ class DefaultPage extends SiteMaster {
     $options = AllPaymentOptions::getRegisteredOptions($vc);
 
     $rows = <div class="registeredOptions" />;
-    foreach ($options as $option) {
-      $row = AllPaymentOptions::getPaymentOptionRow($vc, $option);
-      $rows->appendChild($row);
+    if ($options) {
+      foreach ($options as $option) {
+        $row = AllPaymentOptions::getPaymentOptionRow($vc, $option);
+        $rows->appendChild($row);
+      }
+    } else {
+      $rows->appendChild(
+        <div class="subtitle">No options added yet.</div>
+      );
     }
 
     return $rows;

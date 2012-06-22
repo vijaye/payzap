@@ -53,7 +53,7 @@ class AllPaymentOptions {
     $title = null;
     switch ($option){
       case 'paypal':
-        $img = '/img/modes/paypal_48.png';
+        $img = '/img/modes/paypal_72.png';
         $assoc_name = Assocs::PAYMENT_OPTION_PAYPAL;
         $title = 'Paypal';
         break;
@@ -63,21 +63,28 @@ class AllPaymentOptions {
     if ($assoc_name) {
       $option_data = get_data($vc->getUserId(), $assoc_name);
 
-      $fields = <div style="margin-left: 60px;" />;
+      $fields = <div />;
       foreach ($option_data as $key => $value) {
         $fields->appendChild(
           <x:frag>
             <label>{$key}</label>
-            <h3>{$value}</h3>
+            <h4>{$value}</h4>
           </x:frag>
         );
       }
+
+      $edit_handler = "Payments.addPaymentOption('$option')";
       $row =
         <div>
-          <h2>{$title}</h2>
           <div class="clearfix">
             <img class="left" src={$img} />
-            {$fields}
+            <div style="margin-left: 80px;">
+              <div class="title titleHeader">{$title}</div>
+              {$fields}
+              <a href="#" onclick={$edit_handler} class="marginTopMedium">
+                Edit this option
+              </a>
+            </div>
           </div>
         </div>;
     }

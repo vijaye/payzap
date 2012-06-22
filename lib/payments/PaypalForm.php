@@ -48,7 +48,7 @@ class PaypalForm extends DialogController {
     require_script('js/payments/paypal.js');
     return array(
       "OK" => 'Paypal.validateDetailsForm($E("paypalForm"));',
-      "Cancel" => '$(this).dialog("close");'
+      "Cancel" => 'AjaxDialog.destroyAll();'
     );
   }
 

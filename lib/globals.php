@@ -136,13 +136,14 @@ function get_head() {
   foreach ($GLOBALS['_meta'] as $m) {
     $head .= $m . "\n";
   }
+
   foreach ($GLOBALS['_styles'] as $s) {
     $s .= "?$rid";
-    $head .= "<link rel='stylesheet' href='" . $s . "' type='text/css' />\n";
+    $head .= "<link rel='stylesheet' href='/$s' type='text/css' />\n";
   }
   foreach ($GLOBALS['_scripts'] as $s) {
     $s .= "?$rid";
-    $head .= "<script src='" . $s . "' type='text/javascript'></script>\n";
+    $head .= "<script src='/$s' type='text/javascript'></script>\n";
   }
   $head .= "</head>\n";
   return $head;
