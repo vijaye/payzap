@@ -21,6 +21,15 @@ class LoginPage extends SiteMaster {
           class="ui-button marginTopLarge">
           Login
         </button>
+
+        <pz:box>
+          blah blah
+        </pz:box>
+
+        <pz:left-right>
+          <div>hello</div>
+          <div>there</div>
+        </pz:left-right>
       </div>;
   }
 

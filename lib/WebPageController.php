@@ -1,5 +1,6 @@
 <?php
 
+requirex('lib/ui.php');
 requirex('lib/WebController.php');
 
 abstract class WebPageController extends WebController {
